@@ -6,23 +6,21 @@ import logo from './logo.png'
 
 const CustomNavbar = () => {
   const [userName, setUserName] = useState('');
-  const [userPoints, setUserPoints] = useState(0);
 
   useEffect(() => {
-    const fetchUserDetails = async () => {
+    const fetchUserName = async () => {
       try {
         const contractInstance = await initContract();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const userDetails = await contractInstance.methods.getUserDetails().call({ from: accounts[0] });
         
         setUserName(userDetails.name);
-        setUserPoints(parseInt(userDetails.totalPoints));
       } catch (error) {
-        console.error('Error fetching user details:', error);
+        console.error('Error fetching user name:', error);
       }
     };
 
-    fetchUserDetails();
+    fetchUserName();
   }, []);
 
   return (
@@ -51,8 +49,7 @@ const CustomNavbar = () => {
         </Navbar.Collapse>
         
         <Navbar.Text className="text-white">
-          Selamat datang, {userName} 
-          <br />Poin Anda : {userPoints} Poin
+          Selamat datang, {userName}
         </Navbar.Text>
       </Container>
     </Navbar>

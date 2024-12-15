@@ -131,6 +131,10 @@ const PointRedemption = () => {
         </Card.Header>
         <Card.Body>
           <div className="text-center mb-4">
+            <h4>Poin Anda</h4>
+            <Badge bg="success" pill>
+              {userPoints} Poin
+            </Badge>
           </div>
 
           {error && <Alert variant="danger">{error}</Alert>}
