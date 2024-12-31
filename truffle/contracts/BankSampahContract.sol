@@ -24,7 +24,7 @@ contract BankSampahContract {
         uint256 timestamp;
     }
 
-    // Add a new struct for point redemption
+    // Struktur data point redemption
     struct PointRedemption {
         address user;
         uint256 pointsRedeemed;
@@ -132,7 +132,7 @@ contract BankSampahContract {
         return userTransactions[msg.sender];
     }
 
-    // Add a function to retrieve point redemption history
+    // AFungsi untuk melihat riwayat penukaran poin
     function getPointRedemptionHistory() public view returns (PointRedemption[] memory) {
         return pointRedemptionHistory[msg.sender];
     }
